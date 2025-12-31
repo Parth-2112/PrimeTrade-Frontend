@@ -65,9 +65,11 @@ const CardSlider = () => {
           hidden xl:flex
           absolute left-0 top-1/2 -translate-y-1/2 z-10
           w-10 h-10 rounded-full
-          bg-white dark:bg-zinc-800
+          bg-white dark:bg-zinc-900
           shadow-md
           items-center justify-center
+          opacity-25
+          hover:opacity-100
           hover:bg-(--primary-color)/10" 
       >
         <HiChevronLeft className="text-2xl" />
@@ -80,9 +82,11 @@ const CardSlider = () => {
           hidden xl:flex
           absolute right-0 top-1/2 -translate-y-1/2 z-10
           w-10 h-10 rounded-full
-          bg-white dark:bg-zinc-800
+          bg-white dark:bg-zinc-900
           shadow-md
           items-center justify-center
+          opacity-25
+          hover:opacity-100
           hover:bg-(--primary-color)/10"
       >
         <HiChevronRight className="text-2xl" />
@@ -108,6 +112,7 @@ const CardSlider = () => {
                 text-left
                 drop-shadow-md
                 shadow-(--primary-color)
+                cursor-pointer
                 hover:scale-[1.05] transition-transform 
                 hover:shadow-lg
                 hover:border-2

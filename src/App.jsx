@@ -2,6 +2,10 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Contact from "./pages/Contact";  
+import Dashboard from "./pages/Dashboard";
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 
 function App() {
 
@@ -10,6 +14,10 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<LogIn />} />
       </Routes>
       <Footer/>
     </div>
