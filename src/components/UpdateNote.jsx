@@ -6,9 +6,9 @@ import { MdOutlineTitle } from "react-icons/md";
 import toast from "react-hot-toast";
 import { createPortal } from "react-dom";
 
-const UpdateNote = ({ onClose , id, setRefresh}) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+const UpdateNote = ({ onClose , id, setRefresh, oldtitle, olddescription}) => {
+  const [title, setTitle] = useState(oldtitle);
+  const [description, setDescription] = useState(olddescription);
   const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
@@ -73,7 +73,7 @@ const UpdateNote = ({ onClose , id, setRefresh}) => {
         <button
           disabled={loading}
           type="submit"
-          className="btn-primary w-1/2 mx-auto mt-4"
+          className={`btn-primary w-1/2 mx-auto mt-4 ${loading? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
         >
           {loading ? "Updating..." : "Update Note"}
         </button>

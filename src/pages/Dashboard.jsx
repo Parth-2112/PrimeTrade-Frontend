@@ -5,6 +5,7 @@ import { server } from '../main';
 import NoteItem from '../components/NoteItem';
 import { CiSearch } from "react-icons/ci";
 import Loader from '../components/Loader';
+import ViewNote from "../components/ViewNote";
 
 const Dashboard = () => {
 
@@ -13,6 +14,7 @@ const Dashboard = () => {
   const [refresh, setRefresh] = useState(false);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
+  const [selectedNoteId, setSelectedNoteId] = useState(null);
 
   useEffect(()=>{
     setLoading(true);
@@ -76,7 +78,7 @@ const Dashboard = () => {
 
       {loading && <Loader />}
       
-      <section className="w-full mt-10 p-4 grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 items-start ">
+      <section className="w-full mt-10 p-4 columns-1 md:columns-3 lg:columns-4 gap-4">
         {
           filteredNotes.length > 0 ? (
             filteredNotes.map((i) => (
@@ -86,6 +88,11 @@ const Dashboard = () => {
                 title={i.title}
                 description={i.description}
                 setRefresh={setRefresh}
+                onView={() => {
+                    setTimeout(() => {
+                    setSelectedNoteId(i._id);
+                  }, 2);
+                }}
               />
             ))
           ) : (
@@ -99,6 +106,12 @@ const Dashboard = () => {
         <NewNote onClose={() => setShowNewNote(false)} />
       )}
 
+      {selectedNoteId && (
+        <ViewNote
+          id={selectedNoteId}
+          onClose={() => setSelectedNoteId(null)}
+        />
+      )}
     </div>
   )
 }

@@ -9,7 +9,7 @@ const deleteHandler = async ({ id, setRefresh }) => {
       { withCredentials: true }
     );
 
-    toast.success(data.message);
+    toast.success(data.message || "Deleted Successfully");
     setRefresh(prev => !prev);
 
   } catch (error) {

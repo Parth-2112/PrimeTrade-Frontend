@@ -72,7 +72,7 @@ const NewNote = ({ onClose }) => {
         <button
           disabled={loading}
           type="submit"
-          className="btn-primary w-1/2 mx-auto mt-4"
+          className={`btn-primary w-1/2 mx-auto mt-4 ${loading? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
         >
           {loading ? "Adding..." : "Add Note"}
         </button>
