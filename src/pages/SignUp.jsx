@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState} from "react";
 import { GrUserManager } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
