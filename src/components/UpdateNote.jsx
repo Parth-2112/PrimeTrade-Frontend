@@ -46,7 +46,7 @@ const UpdateNote = ({ onClose , id, setRefresh}) => {
         onSubmit={submitHandler}
         className="flex flex-col gap-6 w-[90%] md:w-[70%] lg:w-[50%] max-w-xl p-6 rounded-3xl bg-white dark:bg-zinc-900 drop-shadow-md"
       >
-        <div className="relative w-full">
+        <div className="relative w-full"> 
           <MdOutlineTitle className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
           <input
             type="text"
@@ -54,7 +54,7 @@ const UpdateNote = ({ onClose , id, setRefresh}) => {
             placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="w-full p-4 pl-12 rounded-md focus:outline-none focus:ring-2 focus:ring-(--primary-color)"
+            className="w-full p-4 pl-12 rounded-md focus:outline-none focus:ring-2 focus:ring-(--primary-color) text-dark dark:text-light"
           />
         </div>
 
@@ -66,7 +66,7 @@ const UpdateNote = ({ onClose , id, setRefresh}) => {
             placeholder="Description"
             required
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full p-4 pl-12 rounded-md focus:outline-none focus:ring-2 focus:ring-(--primary-color)"
+            className="w-full p-4 pl-12 rounded-md focus:outline-none focus:ring-2 focus:ring-(--primary-color) text-dark dark:text-light"
           />
         </div>
 
