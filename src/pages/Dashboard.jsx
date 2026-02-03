@@ -4,6 +4,7 @@ import axios from 'axios';
 import { server } from '../main';
 import NoteItem from '../components/NoteItem';
 import { CiSearch } from "react-icons/ci";
+import Loader from '../components/Loader';
 
 const Dashboard = () => {
 
@@ -11,8 +12,10 @@ const Dashboard = () => {
   const [notes, setNotes] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(()=>{
+    setLoading(true);
     axios.get(`${server}/notes/my`,{
       withCredentials:true,
     })
@@ -22,6 +25,9 @@ const Dashboard = () => {
     .catch(e=>{
       toast.error(e.response.data.message);
     })
+    .finally(()=>{
+      setLoading(false);
+    });
   },[showNewNote,refresh]);
 
   const filteredNotes = notes.filter(note =>
@@ -31,7 +37,7 @@ const Dashboard = () => {
   
   return (
     <div className='min-h-[90vh] flex flex-col justify-start items-center'>
-
+      
       <div className='w-full flex justify-between items-center'>
         <div className='flex w-full justify-end gap-4 items-center'>
           <div className="relative w-[60%] max-w-xs">
@@ -68,6 +74,8 @@ const Dashboard = () => {
         </div>
       </div>
 
+      {loading && <Loader />}
+      
       <section className="w-full mt-10 p-4 grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 items-start ">
         {
           filteredNotes.length > 0 ? (
