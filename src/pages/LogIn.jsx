@@ -40,9 +40,15 @@ const LogIn = () => {
       setLoading(false);
     }  
   }
+  
+  useEffect(() => {
+    if (isAuthenticated) {
+    toast.success("You are already logged in");
+    }
+  }, [isAuthenticated]);
 
   if(isAuthenticated){
-    return <Navigate to="/"/>
+    return <Navigate to="/" replace/>
   }
 
   return (
