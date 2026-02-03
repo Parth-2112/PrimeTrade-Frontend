@@ -46,7 +46,7 @@ const LogIn = () => {
   }
 
   return (
-    <div className='h-[90vh] flex flex-col justify-start items-center pt-20 '>
+    <div className='flex flex-col justify-start items-center pt-20 '>
       <h1 className='text-[min(8vw,70px)] tracking-wide md:leading-15 leading-12 font-bold '><span className='text-(--primary-color) tracking-tight'>Log </span>In</h1>
       
       <form 

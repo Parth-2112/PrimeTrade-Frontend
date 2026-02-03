@@ -4,7 +4,7 @@ import { FiMessageSquare } from "react-icons/fi";
 
 const Contact = () => {
   return (
-    <div className='h-[90vh] flex flex-col justify-start items-center pt-20 '>
+    <div className='flex flex-col justify-start items-center pt-20 '>
       <h1 className='text-[min(8vw,70px)] tracking-wide md:leading-15 leading-12 font-bold '><span className='text-(--primary-color) tracking-tight'>Contact </span>Us</h1>
 
       <div className='flex flex-col md:w-[70%] lg:w-[60%] w-full mt-20 gap-6 h-1/2 p-6 rounded-3xl bg-white dark:bg-zinc-900 drop-shadow-md justify-center items-center'>

@@ -20,7 +20,7 @@ const Profile = () => {
   }
 
   return (
-    <div className='h-[90vh] flex flex-col justify-start items-center pt-20'>
+    <div className='flex flex-col justify-start items-center pt-20'>
       <div className='flex flex-col md:w-[70%] lg:w-[60%] w-full mt-20 gap-12 h-1/2 p-6 rounded-3xl bg-white dark:bg-zinc-900 drop-shadow-md justify-center'>
         <h1 className='text-2xl'><span className='text-(--secondary-color)'>Hi.</span> <br/>{user?.name}</h1>
         <h1 className='text-2xl'><span className='text-(--primary-color)'>Your Email.</span> <br/>{user?.email}</h1>  
