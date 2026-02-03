@@ -53,7 +53,6 @@ const SignUp = () => {
   }
 
   if(isAuthenticated){  
-    toast.message("You are already logged in");
     return <Navigate to="/"/>
   }
 
