@@ -7,16 +7,25 @@ import axios from "axios";
 import { server } from "../main";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import PasswordChecklist from "react-password-checklist";
 
 const SignUp = () => {
 
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+
   const {isAuthenticated, setIsAuthenticated, loading, setLoading} = useContext(AuthContext);
 
   const submitHandler = async (e)=>{
     e.preventDefault();
+
+    if(!isPasswordValid){
+      toast.error("Password does not meet the criteria");
+      return;
+    }
+    
     setLoading(true);
     try {
       const {data} = await axios.post(`${server}/users/new`,
@@ -43,7 +52,8 @@ const SignUp = () => {
     }  
   }
 
-  if(isAuthenticated){
+  if(isAuthenticated){  
+    toast.message("You are already logged in");
     return <Navigate to="/"/>
   }
 
@@ -95,7 +105,26 @@ const SignUp = () => {
             className="w-full p-4 pl-12 rounded-md focus:outline-none focus:ring-2 focus:ring-(--primary-color)"
           />
         </div>
-        <button disabled={loading} type="submit" className={`btn-primary md:w-1/4 mx-auto md:mt-4 ${loading ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}>Sign Up</button>
+
+        {/* Password Checklist */}
+        {password.length > 0 && (
+          <div className="w-full text-sm">
+            <PasswordChecklist
+              rules={[
+                "minLength",
+                "specialChar",
+                "number",
+                "capital",
+                "lowercase",
+              ]}
+              minLength={8}
+              value={password}
+              onChange={(isValid) => setIsPasswordValid(isValid)}
+            />
+          </div>
+        )}
+
+        <button disabled={loading || !isPasswordValid} type="submit" className={`btn-primary md:w-1/4 mx-auto md:mt-4 ${loading || !isPasswordValid? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}>Sign Up</button>
 
         <div className="flex w-full justify-end items-center">
           Already have an account? <span className="ml-2 text-(--primary-color) hover:text-(--secondary-color)"><Link to="/login"> login</Link></span>
