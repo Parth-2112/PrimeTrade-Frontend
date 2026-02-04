@@ -19,7 +19,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="flex items-center text-lg max-sm:text-sm justify-center md:justify-end">
-        <FaRegCopyright/> 2025 notesNook.
+        <FaRegCopyright/> 2026 notesNook.
       </div>
     
     </div>
