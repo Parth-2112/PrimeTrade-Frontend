@@ -15,6 +15,7 @@ const Home = () => {
   }
   return (
     <div className='min-h-full'>
+      <h1>This is edit</h1>
     
       <section className='w-full h-[85vh] md:h-[90vh] max-sm:flex-col-reverse flex items-center justify-evenly'>
         <div>
